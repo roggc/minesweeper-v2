@@ -84,9 +84,6 @@ const Minesweeper = ({ dim }) => {
       board[i][j] = (
         <Cell
           key={`${i}_${j}`}
-          getInfo={(info) => {
-            infoRef.current[i][j] = info
-          }}
           numOfMines={minesAround[i][j]}
           ref={(item) => (cellRefs.current[i][j] = item)}
           cellRefs={cellRefs}

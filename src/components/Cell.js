@@ -2,13 +2,13 @@ import styled from 'styled-components'
 import { useEffect, useState, forwardRef } from 'react'
 
 const Cell = forwardRef(
-  ({ getInfo, numOfMines, cellRefs, i, j, infoRef }, ref) => {
+  ({ numOfMines, cellRefs, i, j, infoRef }, ref) => {
     const [isCovered, setIsCovered] = useState(true)
-    const [isMined,] = useState(Math.random() > 0.8)
+    const [isMined,] = useState(Math.random() > 0.9)
 
     useEffect(() => {
-      getInfo({ isMined, isCovered })
-    }, [isCovered])
+      infoRef.current[i][j] = {isMined,isCovered}
+    }, [isCovered,isMined])
 
     useEffect(() => {
       if (
